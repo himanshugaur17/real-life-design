@@ -15,7 +15,7 @@ public class EntryGate extends Gate {
 
     public ParkingTicket processVehicleEntry(Vehicle vehicle) throws SpotNotFoundException {
         try {
-            if (reentrantLock.tryLock(2, TimeUnit.SECONDS)) {
+            if (reentrantLock.tryLock(5, TimeUnit.SECONDS)) {
                 return parkingService.entry(vehicle);
             } else {
                 System.out.println("try some other gate");

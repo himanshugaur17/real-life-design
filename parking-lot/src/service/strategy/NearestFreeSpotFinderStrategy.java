@@ -37,7 +37,7 @@ public class NearestFreeSpotFinderStrategy implements ParkingSpotFinderStrategy 
         PriorityBlockingQueue<ParkingSpot> freeParkingSpotsQueue = freeParkingSpots
                 .get(supportedParkingSpotType);
         try {
-            ParkingSpot parkingSpot = freeParkingSpotsQueue.poll(2, TimeUnit.SECONDS);
+            ParkingSpot parkingSpot = freeParkingSpotsQueue.poll(10, TimeUnit.SECONDS);
             if (Objects.isNull(parkingSpot))
                 throw new SpotNotFoundException("spot not found");
             return parkingSpot;

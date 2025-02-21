@@ -35,7 +35,7 @@ public class ParkingService implements ParkingEventObservable {
         parkingTicket.setExitTime(LocalDateTime.now());
         System.out.println("parking ticket pric: " + parkingTicket.calculatePrice());
         Vehicle associatedVehicle = parkingTicket.getVehicle();
-        ParkingSpot parkingSpot = associatedVehicle.getParkingTicket().getParkingSpot();
+        ParkingSpot parkingSpot = parkingTicket.getParkingSpot();
         notifyObservers(new ParkingEvent(ParkingEventType.EXIT, associatedVehicle, parkingSpot));
         parkingSpot.vacate();
 
